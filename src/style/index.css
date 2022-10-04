@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #121829;
+  background-repeat: repeat-x;
+}
+/* body::before {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  background: linear-gradient(102.38deg, #5a4af4 6.05%, #2f70aa 92.96%);
+  border-radius: 100%;
+  top: 40%;
+  filter: blur(90px);
+  background-repeat: repeat;
+}
+body::after {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  background: linear-gradient(308.82deg, #04a574 2.36%, #8458a7 78.31%);
+  border-radius: 100%;
+  right: 5%;
+  bottom: 5%;
+  filter: blur(90px);
+  background-repeat: repeat;
+} */
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 500px;
+  background-color: #9b9b9b;
+}
+.bg-gradient-greenPink {
+  background: linear-gradient(102.38deg, #5a4af4 6.05%, #2f70aa 92.96%);
+  filter: blur(150px);
+}
+.bg-gradient-blueViolet {
+  background: linear-gradient(308.82deg, #04a574 2.36%, #8458a7 78.31%);
+  filter: blur(150px);
+}
+.bg-card {
+  background: rgba(45, 55, 84, 0.8);
+}
