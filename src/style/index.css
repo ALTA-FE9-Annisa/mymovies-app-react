@@ -13,29 +13,6 @@ body {
   background-color: #121829;
   background-repeat: repeat-x;
 }
-/* body::before {
-  content: "";
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  background: linear-gradient(102.38deg, #5a4af4 6.05%, #2f70aa 92.96%);
-  border-radius: 100%;
-  top: 40%;
-  filter: blur(90px);
-  background-repeat: repeat;
-}
-body::after {
-  content: "";
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  background: linear-gradient(308.82deg, #04a574 2.36%, #8458a7 78.31%);
-  border-radius: 100%;
-  right: 5%;
-  bottom: 5%;
-  filter: blur(90px);
-  background-repeat: repeat;
-} */
 
 ::-webkit-scrollbar {
   width: 0.3rem;
@@ -58,4 +35,13 @@ body::after {
 }
 .bg-card {
   background: rgba(45, 55, 84, 0.8);
+}
+.text-abu-700 {
+  color: #767e94;
+}
+.text-yellow {
+  color: #ffad49;
+}
+.bg-card-detail {
+  background: rgba(32, 40, 62, 0.8);
 }

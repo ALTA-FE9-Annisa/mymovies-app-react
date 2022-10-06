@@ -17,6 +17,7 @@ module.exports = {
       },
       tertary: {
         600: "#9257CC",
+        500: "767E94",
       },
     },
   },

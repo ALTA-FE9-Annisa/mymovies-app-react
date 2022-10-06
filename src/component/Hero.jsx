@@ -4,13 +4,13 @@ import React, { Component } from "react";
 export class Hero extends Component {
   render() {
     return (
-      <div className="w-full h-[550px] ">
+      <div className="w-full h-[560px] ">
         <div className="w-full h-full">
           <div
             className="absolute z-0 w-[30%] h-[30%] right-[5%] bottom-[5%]
           bg-gradient-greenPink"
           />
-          <div className="absolute w-full h-[550px] bg-gradient-to-t from-abu-600/90 z-[2]" />
+          <div className="absolute w-full h-[560px] bg-gradient-to-t from-abu-600/90 z-[2]" />
           <img
             className="w-full h-full object-cover"
             src="https://ultimagz.com/wp-content/uploads/dune-movie-poster-1630680152236.jpg"
