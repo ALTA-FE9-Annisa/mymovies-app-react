@@ -6,16 +6,18 @@ import Hero from "../component/Hero";
 // import { faker } from "@faker-js/faker";
 import Loading from "../component/Loading";
 import { ButtonPrimary } from "../component/Button";
+import { WithRouter } from "../utils/Navigation";
+import { data } from "autoprefixer";
 
 export class Home extends Component {
   state = {
-    title: "Welcome",
     datas: [],
     skeleton: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     loading: true,
     page: 1,
   };
   componentDidMount() {
+    // console.log(this.props);
     this.fetchData();
   }
   fetchData() {
@@ -40,7 +42,28 @@ export class Home extends Component {
         this.setState({ loading: false });
       });
   }
-
+  handleFav(movie) {
+    const getMovies = localStorage.getItem("favMovies");
+    if (getMovies) {
+      const parsedMovies = JSON.parse(getMovies);
+      const ft = getMovies.find(() => movie.id === data.id);
+      if (ft) {
+        alert("udah ada");
+      }
+      parsedMovies.push(movie);
+      const temp = JSON.stringify(parsedMovies);
+      localStorage.setItem("favMovies", temp);
+    } else {
+      const temp = JSON.stringify([movie]);
+      localStorage.setItem("favMovies", temp);
+    }
+  }
+  /*
+      cek film yang diinputkan ada di local storage atau tidak (saran menggunakan method .find)
+      if movie.id === data.id
+      - kalau gak ada, push ke parsedMovies
+      - kalau ada, kasih alert (film sudah ditambahkan sebelumnya)
+      */
   render() {
     return (
       <>
@@ -65,6 +88,8 @@ export class Home extends Component {
                     image={data.poster_path}
                     title={data.title}
                     date={data.release_date}
+                    onNavigate={() => this.props.navigate(`/detail/${data.id}`)}
+                    addFavorite={() => this.handleFav(data)}
                   />
                 ))}
             <div
@@ -83,4 +108,4 @@ export class Home extends Component {
   }
 }
 
-export default Home;
+export default WithRouter(Home);

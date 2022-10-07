@@ -4,15 +4,19 @@ import logo from "../asset/logo.png";
 import { BsBookmark, BsToggleOn } from "react-icons/bs";
 
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export class Navbar extends Component {
   render() {
     return (
       <div className=" px-7 lg:px-20 py-3 w-full h-18 flex m-auto items-center justify-between fixed z-20  ">
         <div className=" flex items-center mr-10  ">
-          <img src={logo} className="w-10 h-10 cursor-auto" alt="logo" />
-          <h1 className="pl-4 font-semibold text-lg text-abu-100">MOVEE</h1>
-
+          <Link to="/">
+            <img src={logo} className="w-10 h-10 cursor-auto" alt="logo" />
+          </Link>
+          <Link to="/">
+            <h1 className="pl-4 font-semibold text-lg text-abu-100">MOVEE</h1>
+          </Link>
           <ul className="flex ml-20 text-abu-100">
             <li className="px-5 font-medium text-base tracking-wider  ">
               <a href="#">Home</a>
@@ -26,7 +30,9 @@ export class Navbar extends Component {
           </ul>
         </div>
         <div className="flex gap-6 text-abu-50">
-          <BsBookmark size={20} />
+          <Link to="/favorite">
+            <BsBookmark size={20} />
+          </Link>
           <BsToggleOn size={20} />
         </div>
       </div>
