@@ -1,39 +1,39 @@
 // import { data } from "autoprefixer";
+import { useState } from "react";
 import { BsBookmark } from "react-icons/bs";
-import React, { Component } from "react";
 
-export class Card extends Component {
-  render() {
-    return (
+function Card(props) {
+  const [background, setBackground] = useState(false);
+
+  return (
+    <div
+      className="flex flex-col dark:bg-card h-[230px] w-[150px]  lg:h-[410px] lg:w-[250px] rounded-lg z-10 backdrop-blur-3xl shadow-xl"
+      // key={data.id}
+    >
       <div
-        className="bg-card h-[410px] w-[250px] rounded-lg z-10 backdrop-blur-3xl"
-        // key={data.id}
+        className="flex justify-center items-center px-2 pt-2 cursor-pointer "
+        onClick={props.onNavigate}
       >
-        <div
-          className="flex justify-center items-center px-2 pt-2 cursor-pointer "
-          onClick={this.props.onNavigate}
-        >
-          <img
-            className="object-cover h-[320px] w-full rounded-lg "
-            src={`https://image.tmdb.org/t/p/w500${this.props.image}`}
-            alt={this.props.title}
-          />
-        </div>
-        <div className="flex justify-between items-center px-4 mt-3 text-abu-100 ">
-          <div>
-            <h5 className="mb-2 text-sm  font-semibold cursor-pointer">
-              {this.props.title}
-            </h5>
-            <p className="font-light text-xs">{this.props.date}</p>
-          </div>
-          <BsBookmark
-            className="cursor-pointer"
-            onClick={this.props.addFavorite}
-          />
-        </div>
+        <img
+          className="h-[170px]  object-cover lg:h-[320px] w-full rounded-lg "
+          src={`https://image.tmdb.org/t/p/w500${props.image}`}
+          alt={props.title}
+        />
       </div>
-    );
-  }
+      <div className="flex justify-between items-center px-4 mt-3  dark:text-abu-100 ">
+        <div>
+          <h5 className="mb-2 text-xxs md:text-sm font-semibold cursor-pointer">
+            {props.title}
+          </h5>
+          <p className="font-light md:text-xs">{props.date}</p>
+        </div>
+
+        <BsBookmark className="cursor-pointer " onClick={props.addFavorite}>
+          {background ? "" : null}
+        </BsBookmark>
+      </div>
+    </div>
+  );
 }
 
 export default Card;
