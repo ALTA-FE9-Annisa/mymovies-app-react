@@ -10,7 +10,7 @@ function Card(props) {
         onClick={props.onNavigate}
       >
         <img
-          className="h-[170px]  object-cover md:h-[12rem] lg:h-[320px] w-full rounded-lg "
+          className="h-[170px]  object-cover md:h-[12rem] lg:h-[320px] w-full rounded-lg img-card"
           src={`https://image.tmdb.org/t/p/w500${props.image}`}
           alt={props.title}
         />

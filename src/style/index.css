@@ -12,7 +12,15 @@
 .bg-light-mode {
   background-color: #c7d4e4;
 }
-
+.text-blue {
+  color: #313b78;
+}
+.btn-load {
+  border: 1px solid #7b6ef6;
+}
+.btn-load:hover {
+  background-color: #313b78;
+}
 body {
   font-family: "Poppins", sans-serif;
   /* background-color: #121829;
@@ -32,11 +40,11 @@ body {
 }
 .bg-gradient-greenPink {
   background: linear-gradient(102.38deg, #5a4af4 6.05%, #2f70aa 92.96%);
-  filter: blur(150px);
+  filter: blur(200px);
 }
 .bg-gradient-blueViolet {
   background: linear-gradient(308.82deg, #04a574 2.36%, #8458a7 78.31%);
-  filter: blur(150px);
+  filter: blur(190px);
 }
 .bg-card {
   background: rgba(45, 55, 84, 0.8);
@@ -53,6 +61,20 @@ body {
 }
 .active {
   background-color: #04a574;
+}
+.img-card {
+  background: linear-gradient(rgb(23, 23rgb (38, 38, 38)) 50%, #000 100%);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3 ease-out;
+}
+/* .img-card img {
+  transform: scale(1.2);
+ 
+} */
+.img-card:hover {
+  transform: scale(1.1) translateY(-20px);
+  opacity: 0.3;
 }
 
 .header {

@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <div className={color ? "header header-bg  w-full" : "header w-full "}>
-      <div className=" px-7 lg:px-20 flex justify-between items-center h-20 text-abu-100 z-20">
+      <div className=" px-7 lg:px-20 flex justify-between items-center h-20  text-abu-200 z-20">
         <div className="flex items-center ">
           <Link to="/">
             <img src={logo} className="w-10 h-10 cursor-auto" alt="logo" />

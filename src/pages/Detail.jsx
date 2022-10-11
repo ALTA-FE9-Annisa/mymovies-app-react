@@ -4,7 +4,7 @@
 import { WithRouter } from "utils/Navigation";
 import { useTitle } from "utils/hooks/useTitle";
 import { useFetchGet } from "../utils/hooks/useFetchGet";
-
+import { HiStar } from "react-icons/hi";
 const Detail = (props) => {
   const { id_movie } = props.params;
   const [data] = useFetchGet(
@@ -42,25 +42,38 @@ const Detail = (props) => {
           />
 
           <div className="z-[10]  ">
-            <h1 className="text-2xl font-bold leading-8 text-abu-100 mb-3">
+            <h1 className="text-2xl font-bold leading-8 text-abu-600 dark:text-abu-100 mb-3">
               {data?.tagline}
             </h1>
-            <p className=" text-base font-light leading-7 text-abu-300 mb-5">
+            <p className=" text-base font-light leading-7 text-abu-500 dark:text-abu-300 mb-5">
               {data?.overview}
             </p>
-            <button className="bg-abu-600 w-[60px] rounded text-yellow mb-5">
-              8.3
+            <button className="bg-abu-600 w-[65px] h-[25px] rounded text-yellow mb-5 flex">
+              <HiStar size={25} className="text-yellow space-x-2" />
+              {data?.vote_average}
             </button>
-            <p className="text-base text-abu-700 mb-2 ">Type</p>
-            <h4 className="text-abu-100 text-lg font-normal mb-5">Movie</h4>
-            <p className="text-base text-abu-700 mb-2 ">Release Date:</p>
-            <h4 className="text-abu-100 text-lg font-normal mb-5">
+            <p className="text-base text-abu-600 dark:text-abu-100 mb-2 ">
+              Type
+            </p>
+            <h4 className="text-abu-500 dark:text-abu-300 text-lg font-normal mb-5">
+              Movie
+            </h4>
+            <p className="text-base text-abu-600 dark:text-abu-100 mb-2 ">
+              Release Date:
+            </p>
+            <h4 className="text-abu-500 dark:text-abu-300 text-lg font-normal mb-5">
               {data?.release_date}
             </h4>
-            <p className="text-base text-abu-700 mb-2">Run time</p>
-            <h4 className="text-abu-100 text-lg font-normal mb-5">181 min</h4>
-            <p className="text-base text-abu-700 mb-2">Genres</p>
-            <h4 className="text-abu-100 text-lg font-normal">
+            <p className="text-base text-abu-600 dark:text-abu-100 mb-2">
+              Run time
+            </p>
+            <h4 className="text-abu-500 dark:text-abu-300 text-lg font-normal mb-5">
+              181 min
+            </h4>
+            <p className="text-base text-abu-600 dark:text-abu-100 mb-2">
+              Genres
+            </p>
+            <h4 className="text-abu-500 dark:text-abu-300 text-lg font-normal">
               Adventure, Science Fiction, Action
             </h4>
           </div>

@@ -39,16 +39,19 @@ const Favorite = (props) => {
   }
 
   return (
-    <div className="w-full h-screen ">
-      <div className="px-7 lg:px-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-15 gap-y-10  mt-[10rem]">
+    <div className="px-7 lg:px-20 w-full h-screen mt-[8rem] ">
+      {/* <h1 className="font-bold text-abu-200 text-6xl mb-[5rem]">
+        List Favorites
+      </h1> */}
+      <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-15 gap-y-10  ">
         <div
           className="absolute z-0 w-[50%] h-[50%] top-[50%]
           bg-gradient-blueViolet rounded-full"
         />
-        <div
+        {/* <div
           className="absolute z-0 w-[50%] h-[50%] right-[3%] bottom-[80%]
           bg-gradient-greenPink rounded-full"
-        />
+        /> */}
 
         {favorites.map((data) => (
           <Card

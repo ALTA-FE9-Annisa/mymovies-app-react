@@ -81,12 +81,12 @@ function Home(props) {
       <section className="lg:mt-12 lg:pt-16 flex flex-col">
         <div className="px-7 lg:px-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-15 gap-y-10  ">
           <div
-            className="absolute z-0 w-[50%] h-[50%] top-[150%]
-          bg-gradient-blueViolet rounded-full "
+            className="absolute z-0 w-[40%] h-[40%] top-[150%]
+          bg-gradient-blueViolet rounded-full backdrop-blur-xl"
           />
           <div
-            className="absolute z-0 w-[50%] h-[50%] right-[3%] bottom-[80%]
-          bg-gradient-greenPink rounded-full"
+            className="absolute z-0 w-[40%] h-[40%] right-[3%] bottom-[80%]
+          bg-gradient-greenPink rounded-full backdrop-blur-2xl"
           />
           {loading
             ? skeleton.map(

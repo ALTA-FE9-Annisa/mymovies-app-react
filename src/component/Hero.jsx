@@ -60,15 +60,15 @@ const Hero = () => {
             className="absolute z-0 w-[30%] h-[30%] right-[5%] bottom-[5%]
           bg-gradient-greenPink"
           />
-          <div className="absolute w-full h-[460px] md:w-full md:h-[560px] bg-gradient-to-t from-abu-600/90 z-[2]" />
+          <div className="absolute w-full h-[460px] md:w-full md:h-[560px] bg-gradient-to-r from-abu-600/90 z-[5]" />
 
           <img
-            className="w-full h-[460px]  md:h-full md:w-full object-cover "
+            className="w-full h-[460px]  md:h-full md:w-full object-cover z-[2] "
             src={`https://image.tmdb.org/t/p/original${moviesRandom?.backdrop_path}`}
             alt={moviesRandom?.title}
           />
 
-          <div className="px-7 lg:px-20 absolute w-full top-[20%] md:top-[25%] lg:top-[40%] z-[2] text-abu-100">
+          <div className="px-7 lg:px-20 absolute w-full top-[20%] md:top-[25%] lg:top-[40%] z-[5] text-abu-100">
             <h1 className="text-2xl md:text-4xl lg:text-6xl font-semibold mb-3 text-abu-50">
               {moviesRandom?.title}
             </h1>

@@ -5,7 +5,7 @@ export class ButtonPrimary extends Component {
     return (
       <div className="flex justify-center pt-16 pb-5 ">
         <button
-          className="rounded bg-abu-300 text-abu-50 py-2 px-5 ml-4 font-light w-40 tracking-normal "
+          className="btn-load rounded bg-secondary-800  text-abu-50 py-2 px-5 ml-4 font-light w-40 tracking-normal "
           onClick={this.props.onClick}
         >
           {this.props.label}
