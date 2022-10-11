@@ -1,22 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-// import { data } from "autoprefixer";
+
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Card from "component/Card";
 import Hero from "component/Hero";
 import Loading from "component/Loading";
+import { useDispatch } from "react-redux";
 import { ButtonPrimary } from "component/Button";
-import { WithRouter } from "utils/Navigation";
 
-import Swal from "sweetalert2";
+import { WithRouter } from "utils/Navigation";
+import { setFavorites } from "utils/redux/reducer/reducer";
+// import Swal from "sweetalert2";
 
 function Home(props) {
   // CONSTRUCTOR
+  const dispatch = useDispatch();
   const [datas, setDatas] = useState([]);
   const [skeleton] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
-
+  // ---=== CONSTRUCTOR END ===---
   useEffect(() => {
     fetchData();
   }, []);
@@ -36,7 +39,7 @@ function Home(props) {
         setPage(newPage);
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.toString());
       })
       .finally(() => {
         setLoading(false);
@@ -46,13 +49,22 @@ function Home(props) {
     const getMovies = localStorage.getItem("favMovies");
     if (getMovies) {
       const parsedMovies = JSON.parse(getMovies);
+      const movieExist = parsedMovies.find((e) => e.id === movie.id);
 
-      parsedMovies.push(movie);
-      const temp = JSON.stringify(parsedMovies);
-      localStorage.setItem("favMovies", temp);
+      if (movieExist) {
+        alert("Movies are already added");
+      } else {
+        parsedMovies.push(movie);
+        const temp = JSON.stringify(parsedMovies);
+        dispatch(setFavorites(parsedMovies));
+        localStorage.setItem("favMovies", temp);
+        alert("movie added to fav");
+      }
     } else {
       const temp = JSON.stringify([movie]);
+      dispatch(setFavorites([movie]));
       localStorage.setItem("favMovies", temp);
+      alert("movie added to fav");
     }
   }
 
@@ -70,10 +82,10 @@ function Home(props) {
         <div className="px-7 lg:px-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-15 gap-y-10  ">
           <div
             className="absolute z-0 w-[50%] h-[50%] top-[150%]
-          bg-gradient-blueViolet rounded-full"
+          bg-gradient-blueViolet rounded-full "
           />
           <div
-            className="absolute z-0 w-[50%] h-[50%] right-[3%] bottom-[-160%]
+            className="absolute z-0 w-[50%] h-[50%] right-[3%] bottom-[80%]
           bg-gradient-greenPink rounded-full"
           />
           {loading

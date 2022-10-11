@@ -1,70 +1,67 @@
-import React, { useEffect, useState } from "react";
-import Loading from "component/Loading";
+import React from "react";
 import { WithRouter } from "utils/Navigation";
-import Card from "component/Card";
 import { useTitle } from "utils/hooks/useTitle";
+import { useSelector, useDispatch } from "react-redux";
+import Card from "component/Card";
+import { setFavorites } from "utils/redux/reducer/reducer";
+// import Swal from "sweetalert2";
 
 const Favorite = (props) => {
-  const [datas, setDatas] = useState([]);
-  const [skeleton] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-  const [loading, setLoading] = useState(true);
+  const favorites = useSelector((state) => state.data.favorites);
+  const dispatch = useDispatch();
+  useTitle("Favorite Movies");
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  useTitle("MyFavo");
   function handleRemoveFav(movie) {
-    /*
-    fungsi untuk menghapus film dari list favorite, clue-nya pake method filter.
-    Setelah di filter, rubah state (this.state.datas) nya dengan yang sudah di filter dan juga localStorage.setItem lagi dengan value yang sudah di filter.
-    */
-    const rem = datas.filter((e) => e !== movie);
-    // // console.log({ rem })
-    // // this.setState({ datas: rem });
-    // this.setState({ ...this.state, datas: rem });
-    setDatas(rem);
-    localStorage.setItem("favMovie", rem);
-  }
+    let deleteMovie = JSON.parse(localStorage.getItem("favMovies"));
+    deleteMovie = deleteMovie.filter((e) => e.id !== movie.id);
+    alert("yakin di hapus?");
+    dispatch(setFavorites([movie]));
+    localStorage.setItem("favMovies", JSON.stringify(deleteMovie));
+    dispatch(setFavorites(deleteMovie));
+    localStorage.removeItem(deleteMovie);
 
-  function fetchData() {
-    const getMovies = localStorage.getItem("favMovies");
-    if (getMovies) {
-      const parsedMovies = JSON.parse(getMovies);
-      // this.setState({ datas: parsedMovies, loading: false });
-      setDatas(parsedMovies);
-      setLoading(false);
-    }
+    // Swal.fire({
+    //   title: "yakin di hpus?",
+    //   type: "danger",
+    //   showCancelButton: true,
+    //   confirmButtonClass: "btn-danger",
+    //   confirmButtonText: "Yes, delete it!",
+    //   closeOnConfirm: false,
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     dispatch(setFavorites([movie]));
+    //     localStorage.setItem("favMovies", JSON.stringify(deleteMovie));
+    //     dispatch(setFavorites(deleteMovie));
+    //     localStorage.removeItem(deleteMovie);
+    //     Swal.fire("you file has been deleted!");
+    //   }
+    // });
   }
 
   return (
-    <>
-      <div className="px-7 lg:px-20 grid grid-cols-4 gap-x-15 gap-y-10  pt-[150px]">
+    <div className="w-full h-screen ">
+      <div className="px-7 lg:px-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-15 gap-y-10  mt-[10rem]">
         <div
-          className="absolute z-0 w-[50%] h-[50%] top-[80%]
+          className="absolute z-0 w-[50%] h-[50%] top-[50%]
           bg-gradient-blueViolet rounded-full"
         />
-        {/* <div
-            className="absolute z-0 w-[50%] h-[50%] right-[3%] bottom-[-160%]
+        <div
+          className="absolute z-0 w-[50%] h-[50%] right-[3%] bottom-[80%]
           bg-gradient-greenPink rounded-full"
-          /> */}
+        />
 
-        {loading
-          ? skeleton.map(
-              (item) => <Loading key={item} /> // Self Closing tag
-            )
-          : datas.map((data) => (
-              <Card
-                key={data.id}
-                image={data.poster_path}
-                title={data.title}
-                date={data.release_date}
-                onNavigate={() => props.navigate(`/detail/${data.id}`)}
-                addFavorite={() => handleRemoveFav(data)}
-              />
-            ))}
+        {favorites.map((data) => (
+          <Card
+            key={data.id}
+            image={data.poster_path}
+            title={data.title}
+            date={data.release_date}
+            onNavigate={() => props.navigate(`/detail/${data.id}`)}
+            addFavorite={() => handleRemoveFav(data)}
+          />
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

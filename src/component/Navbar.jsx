@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <div className={color ? "header header-bg  w-full" : "header w-full "}>
-      <div className=" px-7 lg:px-20 flex lg:justify-between items-center h-20 text-abu-100 z-20">
+      <div className=" px-7 lg:px-20 flex justify-between items-center h-20 text-abu-100 z-20">
         <div className="flex items-center ">
           <Link to="/">
             <img src={logo} className="w-10 h-10 cursor-auto" alt="logo" />
@@ -48,12 +48,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="flex text-abu-50 space-x-5  ">
+        <div className="flex items-center text-abu-50 space-x-4  ml-10 ">
           <Link to="/favorite">
             <BsBookmark size={20} />
           </Link>
-          {/* <BsToggleOn size={20} />
-           */}
+
           <Toggle isLight={isLight} onClick={handleClick} />
         </div>
         {/* mobile bttn */}

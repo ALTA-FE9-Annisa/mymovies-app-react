@@ -9,10 +9,11 @@ import { Link } from "react-router-dom";
 
 // import Loading from "./Loading";
 
-const Hero = (props) => {
+const Hero = () => {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(true);
   // const [genre, setGenre] = useState([]);
+
   const moviesRandom = movie[Math.floor(Math.random() * movie.length)];
   useEffect(() => {
     fetchMovie();
@@ -67,7 +68,7 @@ const Hero = (props) => {
             alt={moviesRandom?.title}
           />
 
-          <div className="px-7 lg:px-20 absolute w-full top-[27%] md:top-[25%] lg:top-[40%] z-[2] text-abu-100">
+          <div className="px-7 lg:px-20 absolute w-full top-[20%] md:top-[25%] lg:top-[40%] z-[2] text-abu-100">
             <h1 className="text-2xl md:text-4xl lg:text-6xl font-semibold mb-3 text-abu-50">
               {moviesRandom?.title}
             </h1>
